@@ -11,5 +11,11 @@ describe Geometry::Linesegment do
       length = Geometry::Linesegment.new([1,3], [1,0])
       expect(length.length_between_2_points).to eq(3)
     end
+
+    it "should return 5 given (-1,4) and (2,0)" do
+      length = Geometry::Linesegment.new([-1,4], [2,0])
+      expect(length.length_between_2_points).to eq(5)
+    end
+
   end
 end

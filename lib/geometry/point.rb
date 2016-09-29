@@ -1,9 +1,13 @@
-class Geometry::Point
-  attr_reader :x_coordinate, :y_coordinate
+class Geometry::Linesegment
+  attr_reader :point_1, :point_2
 
   def initialize(x, y)
-    @x_coordinate = x
-    @y_coordinate = y
+    @point_1 = x
+    @point_2 = y
+  end
+
+  def length_between_2_points
+    0
   end
 
   private

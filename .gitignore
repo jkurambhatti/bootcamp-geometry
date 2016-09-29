@@ -27,3 +27,4 @@ vendor/Pods/
 /vendor/bundle
 /lib/bundler/man/
 Gemfile.lock
+.idea/

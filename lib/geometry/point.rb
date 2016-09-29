@@ -7,7 +7,11 @@ class Geometry::Linesegment
   end
 
   def length_between_2_points
-    0
+    if @point_1 == 0 && @point_2 == 0
+      0
+    else
+      Math.sqrt( ((@point_2[1] - @point_1[1]) ** 2).abs + ((@point_2[0] - @point_1[0]) ** 2).abs )
+    end
   end
 
   private

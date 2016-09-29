@@ -5,4 +5,7 @@ class Geometry::Point
     @x_coordinate = x
     @y_coordinate = y
   end
+
+  private
+  attr_writer :x_coordinate, :y_coordinate
 end

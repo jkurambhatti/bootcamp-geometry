@@ -20,5 +20,10 @@ describe Geometry::Point do
       point = Geometry::Point.new(0,0)
       expect(point == point).to eq(true)
     end
+
+    it "should return false when the point is compared to nil (Type Checking)" do
+      point = Geometry::Point.new(0,0)
+      expect(point == nil).to eq(false)
+    end
   end
 end

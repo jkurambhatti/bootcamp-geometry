@@ -7,7 +7,11 @@ class Geometry::Point
   end
 
   def ==(point_2)
-    true
+    if point_2 == nil
+      false
+    elsif self.abscissa == point_2.abscissa && self.ordinate == point_2.ordinate
+      true
+    end
   end
 
   private

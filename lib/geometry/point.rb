@@ -9,6 +9,8 @@ class Geometry::Point
   def ==(other)
     if !other.instance_of?(self.class)
       false
+    elsif self.equal?(other)
+      true
     else
       self.abscissa == other.abscissa && self.ordinate == other.ordinate
     end

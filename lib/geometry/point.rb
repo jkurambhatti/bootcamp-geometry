@@ -1,11 +1,12 @@
 class Geometry::Point
-  attr_reader :point
+  attr_reader :abscissa, :ordinate
 
   def initialize(abscissa, ordinate)
-    @point = { 'abscissa' => abscissa, 'ordinate' => ordinate}
+    @abscissa = abscissa
+    @ordinate = ordinate
   end
 
   private
 
-  attr_writer :point
+  attr_writer :abscissa, :ordinate
 end

@@ -26,6 +26,12 @@ describe Geometry::Point do
       expect(point == nil).to eq(false)
     end
 
+    it "should return false when the point is compared to a different object type (Type Checking)" do
+      point = Geometry::Point.new(0,0)
+      sample_object = "ABC"
+      expect(point == sample_object).to eq(false)
+    end
+
     it "should return true when the points compared are equal (Symmetric property)" do
       point_1 = Geometry::Point.new(1,2)
       point_2 = Geometry::Point.new(1,2)

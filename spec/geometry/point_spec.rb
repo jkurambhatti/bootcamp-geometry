@@ -26,10 +26,17 @@ describe Geometry::Point do
       expect(point == nil).to eq(false)
     end
 
-    it "should return true when the point is compared to itself (Reflexive property)" do
+    it "should return true when the points compared are equal (Symmetric property)" do
       point_1 = Geometry::Point.new(1,2)
       point_2 = Geometry::Point.new(1,2)
       expect(point_1 == point_2 && point_2 == point_1).to eq(true)
+    end
+
+    it "should return true when the 3 points are compared to themselves in pairs (Transitive property)" do
+      point_1 = Geometry::Point.new(1,2)
+      point_2 = Geometry::Point.new(1,2)
+      point_3 = Geometry::Point.new(1,2)
+      expect(point_1 == point_2 && point_2 == point_3 && point_3 == point_1).to eq(true)
     end
   end
 end

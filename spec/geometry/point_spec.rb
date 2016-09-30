@@ -26,7 +26,7 @@ describe Geometry::Point do
       expect(point == nil).to eq(false)
     end
 
-    it "should return false when the point is compared to a different object type (Type Checking)" do
+    it "should return false when the point is compared to a different instance of object (Type Checking)" do
       point = Geometry::Point.new(0,0)
       sample_object = "ABC"
       expect(point == sample_object).to eq(false)
@@ -44,7 +44,7 @@ describe Geometry::Point do
       expect(point_1 == point_2 && point_2 == point_1).to eq(false)
     end
 
-    it "should return false when compared with different object (Symmetric property)" do
+    it "should return false when compared with different instance of object (Symmetric property)" do
       point_1 = Geometry::Point.new(1,2)
       point_2 = "ABC"
       expect(point_1 == point_2 && point_2 == point_1).to eq(false)
@@ -55,6 +55,20 @@ describe Geometry::Point do
       point_2 = Geometry::Point.new(1,2)
       point_3 = Geometry::Point.new(1,2)
       expect(point_1 == point_2 && point_2 == point_3 && point_3 == point_1).to eq(true)
+    end
+
+    it "should return false when out of  3 points one is nil (Transitive property)" do
+      point_1 = Geometry::Point.new(1,2)
+      point_2 = Geometry::Point.new(1,2)
+      point_3 = nil
+      expect(point_1 == point_2 && point_2 == point_3 && point_3 == point_1).to eq(false)
+    end
+
+    it "should return false when out of  3 points one is of a different instance of object (Transitive property)" do
+      point_1 = Geometry::Point.new(1,2)
+      point_2 = Geometry::Point.new(1,2)
+      point_3 = "ABC"
+      expect(point_1 == point_2 && point_2 == point_3 && point_3 == point_1).to eq(false)
     end
   end
 end

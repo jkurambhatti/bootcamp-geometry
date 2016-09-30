@@ -16,5 +16,9 @@ class Geometry::Point
     end
   end
 
+  def hash
+    [self.abscissa, self.ordinate].hash * 31
+  end
+
   alias :eql? :==
 end

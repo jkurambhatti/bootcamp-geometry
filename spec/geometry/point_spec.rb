@@ -76,4 +76,18 @@ describe Geometry::Point do
       expect(point.eql?(other_point)).to be_falsey
     end
   end
+
+  describe "#hash" do
+    it "should generate same hash for point and other point when equal" do
+      point = Geometry::Point.new(0, 0)
+      other_point = Geometry::Point.new(0, 0)
+      expect(point.hash).to eq(other_point.hash)
+    end
+
+    it "should generate different hash for point and other point when NOT equal" do
+      point = Geometry::Point.new(0, 0)
+      other_point = Geometry::Point.new(0, 1)
+      expect(point.hash).to_not eq(other_point.hash)
+    end
+  end
 end

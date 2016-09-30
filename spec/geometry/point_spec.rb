@@ -69,5 +69,11 @@ describe Geometry::Point do
       other_point = Geometry::Point.new(0, 0)
       expect(point.eql?(other_point)).to be_truthy
     end
+
+    it "should NOT satisfy equality for point and other point when NOT equal" do
+      point = Geometry::Point.new(0, 0)
+      other_point = Geometry::Point.new(0, 1)
+      expect(point.eql?(other_point)).to be_falsey
+    end
   end
 end

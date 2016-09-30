@@ -15,7 +15,7 @@ describe Geometry::Point do
     end
   end
 
-  describe "#compare_2_points" do
+  describe "#==" do
     it "should return true when the point is compared to itself (Reflexive property)" do
       point = Geometry::Point.new(0,0)
       expect(point == point).to eq(true)
@@ -38,13 +38,13 @@ describe Geometry::Point do
       expect(point_1 == point_2 && point_2 == point_1).to eq(true)
     end
 
-    it "should return false when compared with nil (Symmetric property)" do
+    it "should return false when compared with nil (Type Checking)" do
       point_1 = Geometry::Point.new(1,2)
       point_2 = nil
       expect(point_1 == point_2 && point_2 == point_1).to eq(false)
     end
 
-    it "should return false when compared with different instance of object (Symmetric property)" do
+    it "should return false when compared with different instance of object (Type Checking)" do
       point_1 = Geometry::Point.new(1,2)
       point_2 = "ABC"
       expect(point_1 == point_2 && point_2 == point_1).to eq(false)
@@ -57,14 +57,14 @@ describe Geometry::Point do
       expect(point_1 == point_2 && point_2 == point_3 && point_3 == point_1).to eq(true)
     end
 
-    it "should return false when out of  3 points one is nil (Transitive property)" do
+    it "should return false when out of  3 points one is nil (Type Checking)" do
       point_1 = Geometry::Point.new(1,2)
       point_2 = Geometry::Point.new(1,2)
       point_3 = nil
       expect(point_1 == point_2 && point_2 == point_3 && point_3 == point_1).to eq(false)
     end
 
-    it "should return false when out of  3 points one is of a different instance of object (Transitive property)" do
+    it "should return false when out of  3 points one is of a different instance of object (Type Checking)" do
       point_1 = Geometry::Point.new(1,2)
       point_2 = Geometry::Point.new(1,2)
       point_3 = "ABC"

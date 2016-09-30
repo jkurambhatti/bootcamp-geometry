@@ -3,72 +3,63 @@ require "spec_helper"
 describe Geometry::Point do
   describe "#point_initialization" do
     it "should return point (0,0) when 0 and 0 are passed as abscissa and ordinate respectively" do
-      point = Geometry::Point.new(0,0)
+      point = Geometry::Point.new(0, 0)
       expect(point.abscissa).to eq(0)
       expect(point.ordinate).to eq(0)
     end
 
     it "should return point (1,5) when 1 and 5 are passed as abscissa and ordinate respectively" do
-      point = Geometry::Point.new(1,5)
+      point = Geometry::Point.new(1, 5)
       expect(point.abscissa).to eq(1)
       expect(point.ordinate).to eq(5)
     end
   end
 
   describe "#==" do
-    it "should return true when the point is compared to itself (Reflexive property)" do
-      point = Geometry::Point.new(0,0)
-      expect(point).to eq(point)
-    end
-
-    it "should return false when the point is compared to nil (Type Checking)" do
-      point = Geometry::Point.new(0,0)
+    it "should not be equal to nil" do
+      point = Geometry::Point.new(0, 0)
       expect(point).to_not eq(nil)
     end
 
-    it "should return false when the point is compared to a different instance of object (Type Checking)" do
-      point = Geometry::Point.new(0,0)
+    it "should not be equal to any object of different type" do
+      point = Geometry::Point.new(0, 0)
       sample_object = Object.new
       expect(point == sample_object).to eq(false)
     end
 
-    it "should return true when the points compared are equal (Symmetric property)" do
-      point_1 = Geometry::Point.new(1,2)
-      point_2 = Geometry::Point.new(1,2)
-      expect(point_1 == point_2 && point_2 == point_1).to eq(true)
+    context "should possess reflexive property" do
+      it "should be equal to itself" do
+        point = Geometry::Point.new(0, 0)
+        expect(point).to eq(point)
+      end
     end
 
-    it "should return false when compared with nil (Type Checking)" do
-      point_1 = Geometry::Point.new(1,2)
-      point_2 = nil
-      expect(point_1 == point_2 && point_2 == point_1).to eq(false)
+    context "should possess symmetric property" do
+      let(:point) { Geometry::Point.new(1, 2) }
+      let(:other_point) { Geometry::Point.new(1, 2) }
+
+      it "should be equal to other point" do
+        expect(point).to eq(other_point)
+      end
+      it "should respond with equality when ask from other point" do
+        expect(other_point).to eq(point)
+      end
     end
 
-    it "should return false when compared with different instance of object (Type Checking)" do
-      point_1 = Geometry::Point.new(1,2)
-      point_2 = "ABC"
-      expect(point_1 == point_2 && point_2 == point_1).to eq(false)
-    end
+    context "should possess transitivity property" do
+      let(:point) { Geometry::Point.new(1, 2) }
+      let(:other_point) { Geometry::Point.new(1, 2) }
+      let(:another_point) { Geometry::Point.new(1, 2) }
 
-    it "should return true when the 3 points are compared to themselves in pairs (Transitive property)" do
-      point_1 = Geometry::Point.new(1,2)
-      point_2 = Geometry::Point.new(1,2)
-      point_3 = Geometry::Point.new(1,2)
-      expect(point_1 == point_2 && point_2 == point_3 && point_3 == point_1).to eq(true)
-    end
-
-    it "should return false when out of  3 points one is nil (Type Checking)" do
-      point_1 = Geometry::Point.new(1,2)
-      point_2 = Geometry::Point.new(1,2)
-      point_3 = nil
-      expect(point_1 == point_2 && point_2 == point_3 && point_3 == point_1).to eq(false)
-    end
-
-    it "should return false when out of  3 points one is of a different instance of object (Type Checking)" do
-      point_1 = Geometry::Point.new(1,2)
-      point_2 = Geometry::Point.new(1,2)
-      point_3 = "ABC"
-      expect(point_1 == point_2 && point_2 == point_3 && point_3 == point_1).to eq(false)
+      it "should be equal to other point" do
+        expect(point).to eq(other_point)
+      end
+      it "should be equal to another point" do
+        expect(point).to eq(another_point)
+      end
+      it "should satisfy equality for other and another point" do
+        expect(other_point).to eq(another_point)
+      end
     end
   end
 end

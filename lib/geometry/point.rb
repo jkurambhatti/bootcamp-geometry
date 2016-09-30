@@ -16,7 +16,5 @@ class Geometry::Point
     end
   end
 
-  private
-
-  attr_writer :abscissa, :ordinate
+  alias :eql? :==
 end

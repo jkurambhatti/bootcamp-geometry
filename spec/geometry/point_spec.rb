@@ -62,4 +62,12 @@ describe Geometry::Point do
       end
     end
   end
+
+  describe "#eql?" do
+    it "should satisfy equality for point and other point when equal" do
+      point = Geometry::Point.new(0, 0)
+      other_point = Geometry::Point.new(0, 0)
+      expect(point.eql?(other_point)).to be_truthy
+    end
+  end
 end

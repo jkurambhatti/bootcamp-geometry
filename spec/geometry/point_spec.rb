@@ -27,5 +27,17 @@ describe Geometry::Point do
       point_2 = Geometry::Point.new(3,4)
       expect(point_1.compare_2_points(point_2)).to eq(false)
     end
+
+    it "should return false when Point-1 (1,2) and Point-2 (1,4) are passed" do
+      point_1 = Geometry::Point.new(1,2)
+      point_2 = Geometry::Point.new(1,4)
+      expect(point_1.compare_2_points(point_2)).to eq(false)
+    end
+
+    it "should return false when Point-1 (1,4) and Point-2 (3,4) are passed" do
+      point_1 = Geometry::Point.new(1,4)
+      point_2 = Geometry::Point.new(3,4)
+      expect(point_1.compare_2_points(point_2)).to eq(false)
+    end
   end
 end

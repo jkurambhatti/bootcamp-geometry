@@ -18,17 +18,17 @@ describe Geometry::Point do
   describe "#==" do
     it "should return true when the point is compared to itself (Reflexive property)" do
       point = Geometry::Point.new(0,0)
-      expect(point == point).to eq(true)
+      expect(point).to eq(point)
     end
 
     it "should return false when the point is compared to nil (Type Checking)" do
       point = Geometry::Point.new(0,0)
-      expect(point == nil).to eq(false)
+      expect(point).to_not eq(nil)
     end
 
     it "should return false when the point is compared to a different instance of object (Type Checking)" do
       point = Geometry::Point.new(0,0)
-      sample_object = "ABC"
+      sample_object = Object.new
       expect(point == sample_object).to eq(false)
     end
 

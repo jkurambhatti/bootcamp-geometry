@@ -38,6 +38,18 @@ describe Geometry::Point do
       expect(point_1 == point_2 && point_2 == point_1).to eq(true)
     end
 
+    it "should return false when compared with nil (Symmetric property)" do
+      point_1 = Geometry::Point.new(1,2)
+      point_2 = nil
+      expect(point_1 == point_2 && point_2 == point_1).to eq(false)
+    end
+
+    it "should return false when compared with different object (Symmetric property)" do
+      point_1 = Geometry::Point.new(1,2)
+      point_2 = "ABC"
+      expect(point_1 == point_2 && point_2 == point_1).to eq(false)
+    end
+
     it "should return true when the 3 points are compared to themselves in pairs (Transitive property)" do
       point_1 = Geometry::Point.new(1,2)
       point_2 = Geometry::Point.new(1,2)

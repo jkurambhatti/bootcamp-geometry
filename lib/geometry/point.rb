@@ -6,12 +6,8 @@ class Geometry::Point
     @ordinate = ordinate
   end
 
-  def compare_2_points(point_2)
-    if self.abscissa == point_2.abscissa && self.ordinate == point_2.ordinate
-      true
-    else
-      false
-    end
+  def ==(point_2)
+    true
   end
 
   private
